@@ -34,12 +34,24 @@
   }
   
   h2.description {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: normal;
     padding: 5px;
   }
-  
+
+  h3.subsubtitle {
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 5px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
   .social-links {
+    padding-top: 20px;
+
     a {
     
       padding: 0 5px;
