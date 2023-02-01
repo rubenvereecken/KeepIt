@@ -1,11 +1,10 @@
 <div class="intro">
     {{ $cdn_url := .Scratch.Get "cdn_url" }}
-    {{ with .Site.Params.avatar}}
-    {{ $avatar := .}}
+    {{ $avatar := $.Site.Params.avatar }}
+    {{ $cv := $.Site.Params.cv }}
    <div class="avatar">
-        <a href="https://static.lessgo.co/ruben.pdf" target="_blank"> <img src="{{ (printf "%s%s" $cdn_url $avatar)}}"> </a>
+        <a href="{{ (printf "%s%s" $cdn_url $cv )}}" target="_blank"> <img src="{{ (printf "%s%s" $cdn_url $avatar)}}"> </a>
     </div>
-    {{ end }}
     {{ if or .Params.gravatar.Email (and .Site.Params.gravatar.Email (ne .Params.gravatar.Email false)) }}
     <div class="avatar">
 			<a href="#">	<img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.gravatar.email }}?s=240&d=mp" alt="gravatar"> </a>
@@ -13,16 +12,15 @@
 		{{ end }}
     {{ with .Site.Params.subtitle}}
     <h2 class="description">
-        Recovering CTO & <a href="https://lessgo.co">Founder</a>. Full-stack, cloud, & machine learning. PhD in AI/AGI in another life.
-    </h2>
+      <a href="https://lessgo.co">Entrepreneur</a> & Startup CTO. Available as <a href="{{ (printf "%s%s" $cdn_url $cv )}}" target="_blank">Fractional CTO</a> or Tech Advisor. PhD in AI/AGI in another life.</h2>
     {{ end }}
     {{ with .Site.Params.subsubtitle}}
     <h3 class="subsubtitle">
-        Focusing on the 20 of the <a href="https://asana.com/resources/pareto-principle-80-20-rule">80/20 rule</a>.
+        Focusing on the <a href="https://asana.com/resources/pareto-principle-80-20-rule">20%</a> that delivers <a href="https://asana.com/resources/pareto-principle-80-20-rule">80%</a> of value.
     </h3>
     {{ end }}
     <div class="social-links">
       {{ partial "social.html" . }}
-  
+
     </div>
 </div>

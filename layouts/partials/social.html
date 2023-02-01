@@ -1,3 +1,4 @@
+{{ $cdn_url := .Scratch.Get "cdn_url" }}
 {{ with .Site.Params.Social.Github }}
 <a href="https://github.com/{{.}}" target="_blank" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-github"></i></a>
 {{ end }}
@@ -8,7 +9,7 @@
 <a href="https://twitter.com/{{.}}" target="_blank" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-twitter"></i></a>
 {{ end }}
 {{ with .Site.Params.Social.Instagram }}
-<a href="https://www.instagram.com/{{.}}/" target="_blank" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-instagram"></i></a> 
+<a href="https://www.instagram.com/{{.}}/" target="_blank" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-instagram"></i></a>
 {{ end }}
 {{ with .Site.Params.Social.Facebook}}
 <a href="https://facebook.com/{{.}}" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-facebook"></i></a>
@@ -166,9 +167,8 @@
 {{ with .Site.Params.Social.Thingiverse}}
 <a href="https://www.thingiverse.com/{{ . }}" rel="me noopener noreffer" target="_blank"><i class="iconfont icon-t"></i></a>
 {{ end }}
-{{ with .Site.Params.Social.Resume}}
-<a href="{{ . }}" rel="me noopener noreffer" target="_blank"><img src="/fa/file_user_solid.png" height="24px" alt="resume" /></a>
-{{ end }}
+{{ $cv := $.Site.Params.cv }}
+<a href="{{ (printf "%s%s" $cdn_url $cv) }}" rel="me noopener noreffer" target="_blank"><img src="/fa/file_user_solid.png" height="24px" alt="resume" /></a>
 {{ with .Site.Params.Social.Email}}
 <a href="mailto:{{.}}" rel="me noopener noreffer" target="_blank"><img src="/fa/at_solid.png" height="24px" alt="email" /></a>
 {{ end }}
